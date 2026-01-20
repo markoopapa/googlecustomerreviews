@@ -1,5 +1,4 @@
 <script src="https://apis.google.com/js/platform.js?onload=renderOptIn&hl={$gcr_lang}" async defer></script>
-
 <script>
   window.renderOptIn = function() {
     window.gapi.load('surveyoptin', function() {
