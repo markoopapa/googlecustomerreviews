@@ -17,7 +17,7 @@ class GoogleCustomerReviews extends Module
         parent::__construct();
 
         $this->displayName = $this->l('Google Customer Reviews');
-        $this->description = $this->l('Customer Reviews integration for PrestaShop 8 and 9 systems.');
+        $this->description = $this->l('Google Customer Reviews integration for PrestaShop 8 and 9 systems.');
     }
 
     public function install()
@@ -25,9 +25,13 @@ class GoogleCustomerReviews extends Module
         return parent::install() && $this->registerHook('displayOrderConfirmation');
     }
 
+    public function uninstall()
+    {
+        return parent::uninstall();
+    }
+
     public function hookDisplayOrderConfirmation($params)
     {
-        // Az "order" objektum kinyerése a paraméterekből
         $order = $params['order'] ?? null;
         if (!Validate::isLoadedObject($order)) {
             return '';
@@ -37,7 +41,6 @@ class GoogleCustomerReviews extends Module
         $address = new Address((int)$order->id_address_delivery);
         $country = new Country((int)$address->id_country);
 
-        // Termékek és GTIN kódok lekérése
         $products = $order->getProducts();
         $gtins = [];
         foreach ($products as $product) {
