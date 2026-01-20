@@ -23,9 +23,8 @@ This module provides a seamless integration of **Google Customer Reviews** for P
 ## ⚙️ Configuration
 The module uses your Merchant ID directly in the code for maximum performance.
 To update your ID:
-1. Open `googlecustomerreviews.php`.
-2. Locate the line: `'merchant_id' => '534853117'`.
-3. Replace the number with your actual **Google Merchant Center ID**.
+1. Open Config
+2. `'merchant_id' => 'xxxxxxxx'`.
 
 ## 🧪 Testing
 - Place a test order in your store.
