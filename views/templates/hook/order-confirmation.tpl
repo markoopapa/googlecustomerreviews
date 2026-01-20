@@ -1,4 +1,4 @@
-<script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn&hl={$gcr_lang}" async defer></script>
 
 <script>
   window.renderOptIn = function() {
@@ -10,7 +10,7 @@
           "email": "{$email|escape:'javascript':'UTF-8'}",
           "delivery_country": "{$country_code|escape:'javascript':'UTF-8'}",
           "estimated_delivery_date": "{$delivery_date|escape:'javascript':'UTF-8'}",
-          "products": {$products_gtin nofilter}
+          "opt_in_style": "CENTER_DIALOG"
         });
     });
   }
