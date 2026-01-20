@@ -41,7 +41,7 @@ A professional and lightweight module to integrate **Google Customer Reviews** (
 
 ## 🛠 Technical Details
 - **Author**: markoo
-- **Version**: 1.5.0
+- **Version**: 1.5.1
 - **Requirement**: Your theme must include `<!DOCTYPE HTML>` (standard in PrestaShop).
 
 ## ⚖️ License
