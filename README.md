@@ -1,39 +1,45 @@
 # Google Customer Reviews Integration for PrestaShop
 
-This module provides a seamless integration of **Google Customer Reviews** for PrestaShop 1.7, 8.x, and 9.x. It automatically displays the Google opt-in survey on the order confirmation page.
+This module provides a professional integration of **Google Customer Reviews** for PrestaShop 1.7, 8.x, and 9.x. It handles the opt-in survey invitation on the order confirmation page with customizable settings.
 
 ## 📌 Features
-- **Automatic Integration**: Injects the Google code only on the Success Page (Order Confirmation).
-- **Dynamic Data**: Automatically pulls Order ID, Customer Email, and Country Code.
-- **Product Reviews Support**: Automatically gathers and sends GTINs (EAN13/UPC) to Google for product ratings.
-- **Multilingual**: The Google popup automatically adapts to the customer's browser language.
-- **Modern Compatibility**: Fully compatible with PrestaShop 8/9 and PHP 8.1+.
+- **Manual Language Selection**: Force the survey language (HU, RO, EN) via the admin panel.
+- **Admin Configuration**: Set your Merchant ID and Language without touching the code.
+- **Product Reviews Support**: Automatically sends product GTINs (EAN13/UPC) to Google for product ratings.
+- **Modern Compatibility**: Optimized for PrestaShop 8 & 9 and PHP 8.1+.
+- **Lightweight**: Zero impact on database performance.
 
 ## 🚀 Installation via ZIP
 
-1. **Prepare the ZIP**: Ensure the folder inside the ZIP is named `googlecustomerreviews` and contains all the files.
+1. **Prepare the ZIP**: Create a zip file containing the folder `googlecustomerreviews`. The structure must be:
+   - `googlecustomerreviews/googlecustomerreviews.php`
+   - `googlecustomerreviews/logo.png`
+   - `googlecustomerreviews/README.md`
+   - `googlecustomerreviews/views/templates/hook/order-confirmation.tpl`
 2. **Upload**: 
-   - Go to your PrestaShop Admin Panel.
-   - Navigate to **Modules** > **Module Manager**.
-   - Click the **Upload a module** button at the top right.
-   - Select the `googlecustomerreviews.zip` file.
-3. **Install**: Once uploaded, PrestaShop will show a success message. Click **Install** if it hasn't automatically started.
-4. **Verification**: After installation, make sure the module is "Enabled".
+   - Go to PrestaShop Admin > **Modules** > **Module Manager**.
+   - Click **Upload a module** and select your `.zip` file.
+3. **Configure**: 
+   - Once installed, click the **Configure** button.
+   - Enter your **Google Merchant ID**.
+   - Select your preferred **Survey Language** from the drop-down menu.
+   - Click **Save**.
 
-## ⚙️ Configuration
-The module uses your Merchant ID directly in the code for maximum performance.
-To update your ID:
-1. Open Config
-2. `'merchant_id' => 'xxxxxxxx'`.
+## ⚙️ How the Opt-in Process Works (Important!)
+When a customer completes a purchase:
+1. The Google Opt-in dialog appears.
+2. If the customer clicks **"Yes, I want to participate"**, the window simply closes. 
+3. **Note**: No new window or survey will open immediately. 
+4. Google will record the request and send an email survey to the customer only **after the estimated delivery date** (configured in the code as +5 days after the order).
 
-## 🧪 Testing
-- Place a test order in your store.
-- Upon reaching the "Thank you for your purchase" page, the Google Customer Reviews opt-in dialog should appear.
-- **Note**: If the dialog does not appear, ensure that your browser's **AdBlocker** is disabled, as it may block Google's scripts.
+## 🧪 Testing & Troubleshooting
+- **AdBlockers**: Ensure your browser's AdBlocker is turned off, otherwise, the Google script will not load.
+- **Merchant Center**: Ensure that "Customer Reviews" is enabled in your **Google Merchant Center** (Growth > Manage Programs).
+- **Console Check**: If the window doesn't appear, press `F12` in your browser and check the "Console" tab for any Google-related errors.
 
 ## 🛠 Technical Requirements
-- **<!DOCTYPE HTML>** must be present at the top of your store's HTML (standard in PrestaShop).
-- The checkout confirmation must occur on your own domain.
+- Your store must have `<!DOCTYPE HTML>` at the top of the page.
+- The confirmation page must be on your own domain.
 
 ## ⚖️ License
 This module is free to use and modify (MIT License).
