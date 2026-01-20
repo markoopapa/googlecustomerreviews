@@ -12,7 +12,7 @@ class GoogleCustomerReviews extends Module
         $this->version = '1.5.0';
         $this->author = 'markoo';
         $this->need_instance = 0;
-        $this->ps_versions_compliancy = ['min' => '1.7.0.0', 'max' => _PS_VERSION];
+        $this->ps_versions_compliancy = ['min' => '1.7.0.0', 'max' => _PS_VERSION_];
         $this->bootstrap = true;
 
         parent::__construct();
