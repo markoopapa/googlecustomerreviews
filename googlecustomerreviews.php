@@ -10,14 +10,14 @@ class GoogleCustomerReviews extends Module
         $this->name = 'googlecustomerreviews';
         $this->tab = 'front_office_features';
         $this->version = '1.1.0';
-        $this->author = 'Saját Modul';
+        $this->author = 'markoo';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '1.7.0.0', 'max' => _PS_VERSION_];
 
         parent::__construct();
 
-        $this->displayName = $this->l('Google Vásárlói Vélemények');
-        $this->description = $this->l('Google Customer Reviews integráció PrestaShop 8 és 9 rendszerekhez.');
+        $this->displayName = $this->l('Google Customer Reviews');
+        $this->description = $this->l('Customer Reviews integration for PrestaShop 8 and 9 systems.');
     }
 
     public function install()
