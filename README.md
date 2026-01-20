@@ -1,45 +1,48 @@
 # Google Customer Reviews Integration for PrestaShop
 
-This module provides a professional integration of **Google Customer Reviews** for PrestaShop 1.7, 8.x, and 9.x. It handles the opt-in survey invitation on the order confirmation page with customizable settings.
+A professional and lightweight module to integrate **Google Customer Reviews** (Opt-in and Badge) into PrestaShop 1.7, 8.x, and 9.x.
 
 ## 📌 Features
-- **Manual Language Selection**: Force the survey language (HU, RO, EN) via the admin panel.
-- **Admin Configuration**: Set your Merchant ID and Language without touching the code.
-- **Product Reviews Support**: Automatically sends product GTINs (EAN13/UPC) to Google for product ratings.
-- **Modern Compatibility**: Optimized for PrestaShop 8 & 9 and PHP 8.1+.
-- **Lightweight**: Zero impact on database performance.
+- **Opt-in Survey**: Automatically shows the Google survey invitation on the order confirmation page.
+- **Merchant Badge**: Display your Google Seller Rating badge on every page.
+- **Customizable Delivery**: Set the number of days to wait before Google sends the survey email (configurable in admin).
+- **Manual Language Control**: Force the survey language (HU, RO, EN) regardless of browser settings.
+- **Badge Positioning**: Choose between Bottom Right, Bottom Left, or Disabled.
+- **Modern Standards**: Fully compatible with PrestaShop 8 & 9 and PHP 8.1+.
 
 ## 🚀 Installation via ZIP
 
-1. **Prepare the ZIP**: Create a zip file containing the folder `googlecustomerreviews`. The structure must be:
+1. **Prepare the ZIP**: Create a zip file named `googlecustomerreviews.zip`. The internal structure must be:
    - `googlecustomerreviews/googlecustomerreviews.php`
    - `googlecustomerreviews/logo.png`
    - `googlecustomerreviews/README.md`
    - `googlecustomerreviews/views/templates/hook/order-confirmation.tpl`
+   - `googlecustomerreviews/views/templates/hook/badge.tpl`
 2. **Upload**: 
-   - Go to PrestaShop Admin > **Modules** > **Module Manager**.
+   - Login to PrestaShop Admin > **Modules** > **Module Manager**.
    - Click **Upload a module** and select your `.zip` file.
 3. **Configure**: 
-   - Once installed, click the **Configure** button.
+   - Click the **Configure** button on the module.
    - Enter your **Google Merchant ID**.
-   - Select your preferred **Survey Language** from the drop-down menu.
+   - Set the **Estimated Delivery (Days)** (Default is 5).
+   - Select the **Survey Language** and **Badge Position**.
    - Click **Save**.
 
-## ⚙️ How the Opt-in Process Works (Important!)
-When a customer completes a purchase:
-1. The Google Opt-in dialog appears.
-2. If the customer clicks **"Yes, I want to participate"**, the window simply closes. 
-3. **Note**: No new window or survey will open immediately. 
-4. Google will record the request and send an email survey to the customer only **after the estimated delivery date** (configured in the code as +5 days after the order).
+## ⚙️ How it Works
+1. **Opt-in Dialog**: When a customer completes a purchase, the Google Opt-in dialog appears.
+2. **Delayed Survey**: If the customer clicks "Yes", Google records the request.
+3. **Email Invitation**: Google sends the actual survey email **only after** the delivery days you set (e.g., 5 days later).
+4. **Merchant Badge**: Shows your store's rating. If you have no ratings yet, it will display "No rating available".
 
 ## 🧪 Testing & Troubleshooting
 - **AdBlockers**: Ensure your browser's AdBlocker is turned off, otherwise, the Google script will not load.
-- **Merchant Center**: Ensure that "Customer Reviews" is enabled in your **Google Merchant Center** (Growth > Manage Programs).
-- **Console Check**: If the window doesn't appear, press `F12` in your browser and check the "Console" tab for any Google-related errors.
+- **Merchant Center**: You must enable "Customer Reviews" in your Google Merchant Center account (Growth > Manage Programs).
+- **Console Check**: If the window doesn't appear, press `F12` and check the "Console" tab for errors.
 
-## 🛠 Technical Requirements
-- Your store must have `<!DOCTYPE HTML>` at the top of the page.
-- The confirmation page must be on your own domain.
+## 🛠 Technical Details
+- **Author**: markoo
+- **Version**: 1.5.0
+- **Requirement**: Your theme must include `<!DOCTYPE HTML>` (standard in PrestaShop).
 
 ## ⚖️ License
 This module is free to use and modify (MIT License).
