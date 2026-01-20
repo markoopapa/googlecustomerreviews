@@ -92,7 +92,7 @@ class GoogleCustomerReviews extends Module
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
         $helper->fields_value['GCR_MERCHANT_ID'] = Configuration::get('GCR_MERCHANT_ID');
-        $helper->fields_value['GCR_DELIVERY_DAYS'] = Configuration::get('GCR_DELIVERY_DAYS');
+        $helper->fields_value['GCR_DELIVERY_DAYS'] = Configuration::get('GCR_DELIVERY_DAYS') ? Configuration::get('GCR_DELIVERY_DAYS') : 5;
         $helper->fields_value['GCR_LANGUAGE'] = Configuration::get('GCR_LANGUAGE');
         $helper->fields_value['GCR_BADGE_POS'] = Configuration::get('GCR_BADGE_POS');
 
